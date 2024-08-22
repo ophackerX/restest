@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!-- Coding By MK-777 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <!-- <link rel="stylesheet" href="form.css"> -->
+    <style>
+        /* ===== Google Font Import - Poppins ===== */
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+            body{
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #4070f4;
+            }
+            .container{
+                position: relative;
+                max-width: 900px;
+                width: 100%;
+                border-radius: 6px;
+                padding: 30px;
+                margin: 0 15px;
+                background-color: #fff;
+                height: 750px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .container header{
+                position: relative;
+                font-size: 20px;
+                font-weight: 600;
+                color: #333;
+            }
+            .container header::before{
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                height: 3px;
+                width: 27px;
+                border-radius: 8px;
+                background-color: #4070f4;
+            }
+            .container form{
+                position: relative;
+                margin-top: 16px;
+                min-height: 490px;
+                background-color: #fff;
+                overflow: hidden;
+            }
+            .container form .form{
+                position: absolute;
+                background-color: #fff;
+                transition: 0.3s ease;
+            }
+            .container form .form.second{
+                opacity: 0;
+                pointer-events: none;
+                transform: translateX(100%);
+            }
+            form.secActive .form.second{
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateX(0);
+            }
+            form.secActive .form.first{
+                opacity: 0;
+                pointer-events: none;
+                transform: translateX(-100%);
+            }
+            .container form .title{
+                display: block;
+                margin-bottom: 8px;
+                font-size: 16px;
+                font-weight: 500;
+                margin: 6px 0;
+                color: #333;
+            }
+            .container form .fields{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            form .fields .input-field{
+                display: flex;
+                width: calc(100% / 3 - 15px);
+                flex-direction: column;
+                margin: 4px 0;
+            }
+            .input-field label{
+                font-size: 12px;
+                font-weight: 500;
+                color: #2e2e2e;
+            }
+            .input-field input, select{
+                outline: none;
+                font-size: 14px;
+                font-weight: 400;
+                color: #333;
+                border-radius: 5px;
+                border: 1px solid #aaa;
+                padding: 0 15px;
+                height: 42px;
+                margin: 8px 0;
+            }
+            .input-field input :focus,
+            .input-field select:focus{
+                box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+            }
+            .input-field select,
+            .input-field input[type="date"]{
+                color: #707070;
+            }
+            .input-field input[type="date"]:valid{
+                color: #333;
+            }
+            .container form button, .backBtn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 45px;
+                max-width: 200px;
+                width: 100%;
+                border: none;
+                outline: none;
+                color: #fff;
+                border-radius: 5px;
+                margin: 25px 0;
+                background-color: #4070f4;
+                transition: all 0.3s linear;
+                cursor: pointer;
+            }
+            .container form .btnText{
+                font-size: 14px;
+                font-weight: 400;
+            }
+            form button:hover{
+                background-color: #ffffff;
+            }
+            form button i,
+            form .backBtn i{
+                margin: 0 6px;
+            }
+            form .backBtn i{
+                transform: rotate(180deg);
+            }
+            form .buttons{
+                display: flex;
+                align-items: center;
+            }
+            form .buttons button , .backBtn{
+                margin-right: 14px;
+            }
+            @media only screen and (max-width: 800px) {
+                .container form{
+                    overflow-y: scroll;
+                }
+                .container form::-webkit-scrollbar{
+                display: none;
+                }
+                form .fields .input-field{
+                    width: calc(100% / 2 - 15px);
+                }
+            }
+            @media (max-width: 550px) {
+                form .fields .input-field{
+                    width: 100%;
+                }
+            }
+    </style>
+     
+    <!----===== Iconscout CSS ===== -->
+    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> -->
+
+   <title>Responsive Regisration Form </title>
+</head>
+<body>
+    <div class="container" >
+        <header>Registration</header>
+
+        <form action="#">
+                
+                <span class="title">Personal Details</span>
+
+            <div class="fields">
+                <div class="input-field">
+                    <label>Full Name</label>
+                    <input type="text" name="Full-Name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-field">
+                    <label>Date of Birth</label>
+                    <input type="date" name="Date-of-Birth" placeholder="Enter birth date" required>
+                </div>
+                <div class="input-field">
+                    <label>Email</label>
+                    <input type="text" name="Email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-field">
+                    <label>Mobile Number</label>
+                    <input type="number" name="Number" placeholder="Enter mobile number" required>
+                </div>
+                <div class="input-field">
+                    <label name="Gander">Gender</label>
+                    <select name="Gander" required>
+                        <option disabled selected>Select gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label name="Name-of-Institute">Name of Institute</label>
+                    <select name="Name-of-Institute" required>
+                        <option disabled selected>Select Option</Option>
+                        <option>Border Guard Public School Cox's Bazar</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label name="Last-Academic-Year">Last Academic Year</label>
+                    <select name="Last-Academic-Year" required>
+                        <option disabled selected>Select Year</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label name="JSC-passing-year">JSC passing year</label>
+                    <select name="JSC-passing-year" required>
+                        <option disabled selected>Select Year</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label name="Have-you-continued-studying">Have you continued studying?</label>
+                    <select name="Have-you-continued-studying" required>
+                        <option disabled selected>Select Option</Option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label name="SSC-passing-year">SSC passing year</label>
+                    <select name="SSC-passing-year" required>
+                        <option disabled selected>Select Year</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label name="Study-now">Do you continue Study?</label>
+                    <select name="Study-now" required>
+                        <option disabled selected>Select Option</Option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label>Present Institute Name</label>
+                    <input name="Present-Institute-Name" type="text" placeholder="Present Institute Name" required>
+                </div>
+                <div class="input-field">
+                    <label>Gurdian Name</label>
+                    <input type="text" name="Gurdian-name" placeholder="Gurdian Name" required>
+                </div>
+
+                <div class="input-field">
+                    <label name="">What do you think about the person?</label>
+                    <select name="">
+                        <option selected disabled>Select Option</option>
+                        <option>Father</option>
+                        <option>Mother</option>
+                        <option>Brother</option>
+                        <option>Sister</option>
+                        <option>Husband</option>
+                        <option>Wife</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label>Gurdian Number</label>
+                    <input type="number" name="Gurdian-Number" placeholder="Enter Gurdian Number" required>
+                </div>
+                <div class="input-field">
+                    <label name="Religion">Religion</label>
+                    <select name="Religion" required>
+                        <option disabled selected>Select Religion</option>
+                        <option>Islam</option>
+                        <option>Hindu</option>
+                        <option>Buddist</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label>Live Address</label>
+                    <input type="text" name="Live-Address" placeholder="Enter Your Live Address" required>
+                </div>
+                <div class="input-field">
+                    <label name="T-shirt-Size">T-shirt Size</label>
+                    <select name="T-shirt-Size" required>
+                        <option disabled selected>Select Size</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Your Photo</label>
+                    <input type="file" accept="image/*" name="photo" placeholder="Enter Gurdian Number" required>
+                </div>
+                    <!-- <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+                        
+                        <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div> -->
+            </div>
+            <input type="submit" value="Next" id="submit" style="border: none;background-color: rgb(82, 199, 28);color: rgb(255, 255, 255);height: 50px; width: 150px;margin-top: 35px;border-radius: 5px;"> 
+        </form>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxtAuc9oD7UiDgA70qN7LziUMHqqd0xpQu89A6xnYl4EFnfXlIV0yWt5KaGCjAwop8/exec'
+
+        const form = document.forms['contact-form']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thank you! your form is submitted successfully." ))
+        .then(() => { window.location.reload(); })
+        .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>
